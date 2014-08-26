@@ -1,7 +1,17 @@
-# class Airport
+class Airport
 
-# 	def land(plane)
-# 		@plane
-# 	end
+	DEFAULT_CAPACITY = 6
 
-# end
+	def planes
+		@planes ||= []
+	end
+
+	def capacity
+		@capacity ||= DEFAULT_CAPACITY
+	end
+
+	def land!
+		@land
+	end
+	
+end

@@ -1,21 +1,17 @@
-class Plane 
-
-	
-	def flying?
-		@flying 
+class Plane
+	def initialize
+		@flying = true
 	end
 
-	def in_air_status?
+	def flying?
 		@flying
 	end
 
-	def take_off!
+	def take_off
 		@flying = true
 	end
 
 	def land!
 		@flying = false
 	end
-
-
 end
