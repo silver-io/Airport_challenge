@@ -20,13 +20,12 @@ describe Airport do
       expect(airport.plane_count).to eq 1
     end
     
-    # it 'a plane can take off' do
-    #   expect(airport.capacity).to eq DEFAULT_CAPACITY
-    #   airport.land!(plane)
-    #   expect(airport.plane_count).to eq 1
-    #   airport.take_off(plane)
-    #   expect(plane.flying?).to_be true
-    # end
+    it 'a plane can take off' do
+      airport.land(plane)
+      expect(airport.plane_count).to eq 1
+      airport.take_off(plane)
+      # expect(plane.flying?).to_be true
+    end
   end
 
 #   context 'traffic control' do
