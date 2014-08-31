@@ -23,10 +23,16 @@ describe Airport do
 
   context 'traffic control:' do
 
+    it "should know when it's full" do
+      expect(airport.full?).not_to be true
+      6.times { airport.land(plane) }
+      expect(airport).to be_full
+    end
+
     it 'a plane cannot land if the airport is full' do
+      6.times { airport.land(plane) }
       expect(airport.full?).to be true
-      airport.land(plane)
-      expect { airport.land!(plane) }.to raise_error
+      expect { airport.land(plane) }.to raise_error("Airport full!")
     end
     
     # Include a weather condition using a module.
@@ -37,7 +43,9 @@ describe Airport do
     # If the airport has a weather condition of stormy,
     # the plane can not land, and must not be in the airport
     context 'weather conditions:' do
-      it 'a plane cannot take off when there is a storm brewing' do
+
+      it 'planes cannot take off when there is a storm brewing' do
+
       end
       
       it 'a plane cannot land in the middle of a storm' do
