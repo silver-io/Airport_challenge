@@ -7,7 +7,7 @@ class Airport
 		@planes = []
 	end
 
-	def plane_count
+	def planes_count
 		@planes.count
 	end
 
@@ -16,14 +16,15 @@ class Airport
 	end
 
 	def full?
-		plane_count == @capacity
+		planes_count == @capacity
 	end
 
 	def land(plane)
+		raise "Airport full" if full?
 		@planes << plane
 	end
 
 	def take_off(plane)
-
+		@planes.delete(plane)
 	end
 end
